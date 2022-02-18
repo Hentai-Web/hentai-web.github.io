@@ -5,7 +5,7 @@ The plugin path is `/hentai-web/plugins/<PLUGINNAME>/`
 
 ## Build
 
-In `/hentai-web/plugins/<PLUGINNAME>/plugin.yaml\
+In `/hentai-web/plugins/<PLUGINNAME>/plugin.yaml`
 
 Function should start like this
 
