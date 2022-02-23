@@ -3,17 +3,18 @@
 Here will you see how to build an plugin for Hentai Web  
 The plugin path is `/hentai-web/plugins/<PLUGINNAME>/`
 
-## Build
-
-In `/hentai-web/plugins/<PLUGINNAME>/plugin.yaml`
-
+## Start
 Function should start like this
 
 ```js
-(function () {
-  console.log("Hello World!");
-})();
+initFile((plugin) => {
+  console.log("Hello, world!")
+});
 ```
+
+## Build
+
+In `/hentai-web/plugins/<PLUGINNAME>/plugin.yaml`
 
 ```yaml
 run: index.js
