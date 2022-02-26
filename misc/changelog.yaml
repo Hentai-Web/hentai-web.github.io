@@ -1,10 +1,140 @@
-version: 1.4.0
+version: 1.4.1
 packages:
-  android: https://github.com/DerGoogler/Hentai-Web/releases/download/1.4.0/app-free-release.apk
-  windows: https://github.com/DerGoogler/Hentai-Web/releases/download/1.4.0/Hentai.Web.Windows.Setup.1.4.0.exe
+  android: https://github.com/DerGoogler/Hentai-Web/releases/download/1.4.1/app-free-release.apk
+  windows: https://github.com/DerGoogler/Hentai-Web/releases/download/1.4.1/Hentai.Web.Windows.Setup.1.4.1.exe
 changes: |-
-  ![hw](https://cdn.discordapp.com/attachments/808975524386177034/937078712338374736/hw139.png)
+    <img src="https://github.com/DerGoogler/cdn/raw/master/images/ezgif-5-8fee341b6c.gif" width="100%"/>
 
-  # What's new in 1.4.0?
+    # What's new in 1.4.1?
 
-  - This release includes some fixes on both platforms. No new features. Read the 1.3.9 release to get the last changes
+    - Fixed the dark mode issue
+    - **Fixed search engine**
+    - Plugins are now context isolated
+    - Plugins are now in a own activity
+    - **Improved app performance (i tried my best to make the app faster...)**
+    - Added new categories to SFW (pat, punch, hug, kiss, cry & smug)
+    - Removed open dev tools
+    - Added plugin editor (Buggy)
+    - Fixed page loading error on desktop
+    - Updated translations
+    - Added fun language (bc i was bored xd [german only])
+    - Added option to hide images with status of 404
+    - Removed support for iFrames
+    - Removed FAB
+    - Action Sheets has been replaced with dialogs
+    - Custom theming has been removed, use the HWPlugin state instead
+    - NSFW content will always disabled on Instagram and Facebock browser disabled
+    - Added AES encryption
+    - Windows requires now system login data
+    - Added an plugin playground (beta and browser only)
+
+    # Source Code
+
+    - Added `native.isInstagram`, `native.isFacebook`.
+      - All these properties are now read only, to protect other plugins
+
+    ## Helper Texts
+    ```js
+          {
+            key: "enableBottomTabbar",
+            icon: "table_chart",
+            type: "switch",
+            text: string.placeTabberOnBottom,
+            helper: {
+              text: "This settings requires not app reload/start", // string.thisHelpText
+            },
+          },
+    ```
+
+
+    # HWPlugin Changes
+
+    Plugins are now context isolated, they cannot access to the Android and Windows interface anymore
+
+    > Due the new context change some elemens variables not work. Is recommended to open an issue.
+
+    Examples
+
+    ```js
+    // Windows
+    console.log(window.Windows.readFile("plugins.yaml"));
+
+    // Android
+    console.log(window.Android.readFile("plugins.yaml"));
+    ```
+
+    # Version
+
+    You can get and require an version
+
+    Get
+
+    ```js
+    native.version.get; // 1.4.0
+    ```
+
+    Require is a little build different, It returns an boolean, not an string or number.
+
+    ```js
+    if (native.version.require(140)) {
+      console.log("This version is supported");
+    } else {
+      console.log("You need the 1.4.0 version to make the plugin running");
+    }
+    ```
+
+    ## Methods to initialize the plugin
+
+    ```js
+    (function () {
+      const plugin = new HWPlugin("PluginName");
+    })();
+    ```
+
+    ```js
+    initFile(() => {
+      const plugin = new HWPlugin("PluginName");
+    });
+    ```
+
+    Run `initFile()` and your plugin will directly created
+
+    ```js
+    initFile((plugin) => {
+      plugin.loadCSS({});
+    });
+    ```
+
+    ## Console
+
+    Console logs form plugins will now marked as an plugin log
+
+    Example
+
+    ```log
+    HighContrastPlugin: Author of this project is Der_Googler
+    ```
+
+    ## Onsen UI
+
+    The core of Onsen UI is now available in the plugin state
+
+    Example
+
+    ```js
+    ons.notification.alert("Button is tapped!");
+    ```
+
+    ## NOTICE
+
+    If you're using an bundle builder, (like Webpack) don't use `require` if you want to use require use `pluginName.require`
+
+    ## Screenshots
+
+    | **Plugin Activity**                                                                                                            | **Editor Activity**                                                                                         |
+    | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+    | ![192 168 178 81_5500_](https://user-images.githubusercontent.com/54764558/155000156-8526cee5-7a02-4cf0-a0f9-ff62f2f363ea.png) | ![h](https://user-images.githubusercontent.com/54764558/155000124-190fa843-ad36-4cf0-a080-c94f8b9d3b79.png) |
+    |                                                                                                                                |                                                                                                             |
+    |                                                                                                                                |                                                                                                             |
+    |                                                                                                                                |                                                                                                             |
+    |                                                                                                                                |                                                                                                             |
