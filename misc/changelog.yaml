@@ -1,6 +1,6 @@
 version: 1.4.1
 packages:
-  android: https://github.com/DerGoogler/Hentai-Web/releases/download/1.4.1/app-free-release.apk
+  android: https://github.com/DerGoogler/Hentai-Web/releases/download/1.4.1/app-release.apk
   windows: https://github.com/DerGoogler/Hentai-Web/releases/download/1.4.1/Hentai.Web.Windows.Setup.1.4.1.exe
 changes: |-
     <img src="https://github.com/DerGoogler/cdn/raw/master/images/ezgif-5-8fee341b6c.gif" width="100%"/>
